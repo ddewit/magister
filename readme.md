@@ -8,6 +8,10 @@
 
 Een elegante API voor Schoolmaster BV's Magister 6.
 
+```shell
+composer require stanvk/magister
+```
+
 ## Officiële Documentatie
 
 De documentatie van de Magister API kan gevonden worden op de [Magister API website](http://www.magister-api.nl).
