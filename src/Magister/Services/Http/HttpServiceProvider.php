@@ -32,7 +32,11 @@ class HttpServiceProvider extends ServiceProvider
             $client = new Client(['base_url' => "https://{$app['school']}.magister.net/api/"]);
 
             $client->setDefaultOption('exceptions', false);
-            $client->setDefaultOption('headers', ['X-API-Client-ID' => '12D8']);
+
+            $client->setDefaultOption('headers', [
+                'X-API-Client-ID' => function_exists('env') ? env('MAGISTER_API_KEY', '12D8') : '12D8',
+            ]);
+
             $client->setDefaultOption('cookies', new SessionCookieJar($app['cookie']));
 
             CacheSubscriber::attach($client);
